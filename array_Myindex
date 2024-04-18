@@ -1,0 +1,10 @@
+def Myindex(a, value):
+    for i in range(0, len(a)):
+        if a[i] == value:
+            return i
+
+arr = ["하나", "둘", "삼", "넷", "오"]
+i = Myindex(arr, "삼")
+
+print(i)
+print(arr)
