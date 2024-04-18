@@ -1,0 +1,9 @@
+def Myreverse(a):
+    temp = []
+    for i in range(0, len(a)):
+        temp.append(a[len(a)-1-i])
+    a[:] = temp
+
+arr = ["하나", "둘", "삼", "넷", "오"]
+Myreverse(arr)
+print(arr)
