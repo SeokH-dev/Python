@@ -1,0 +1,47 @@
+class Node():
+    def __init__(self, d = None):
+        self.data = d
+        self.right = None
+        self.left = None
+
+class LinkedList():
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def add(self, d = None):
+        newNode = Node(d)
+        if self.head is not None:
+            current = self.head
+            while current.right is not None:
+                current = current.right
+            current.right = newNode
+            newNode.left = current
+            self.tail = newNode
+        else:
+            self.head = newNode
+
+    def printAll(self):
+        current = self.head
+        while current.right is not None:
+            print(current.data)
+            current = current.right
+        print(current.data)
+    def printReverseAll(self):
+        current = self.tail
+        while current.left is not None:
+            print(current.data)
+            current = current.left
+        print(current.data)
+
+newNode = LinkedList()
+newNode.add("첫번째")
+newNode.add("두번째")
+newNode.add("세번째")
+newNode.add("네번째")
+newNode.add("다섯번째")
+newNode.add("여섯번째")
+newNode.add("일곱번째")
+newNode.add("여덟번째")
+newNode.printAll()
+newNode.printReverseAll()
