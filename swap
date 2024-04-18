@@ -1,0 +1,57 @@
+class Node():
+    def __init__(self, d = None):
+        self.data = d
+        self.link = None
+
+class LinkedList():
+    def __init__(self):
+        self.head = None
+
+    def add(self, d = None):
+        newNode = Node(d)
+        if self.head is not None:
+            current = self.head
+            while current.link is not None:
+                current = current.link
+            current.link = newNode
+        else:
+            self.head = newNode
+    
+    def printAll(self):
+        current = self.head
+        while current.link is not None:
+            print(current.data)
+            current = current.link
+        print(current.data)
+
+    def swap(self, a = None, b = None):
+        currentA = self.head
+        currentB = self.head
+        prevA = None
+        nextB = None
+        for i in range(0, a):
+            prevA = currentA
+            currentA = currentA.link
+        for i in range(0, b):
+            currentB = currentB.link
+            nextB = currentB.link
+        prevA.link = currentB
+        prevA = currentA.link
+        currentB.link = prevA
+        currentA.link = nextB
+        while prevA.link is not currentB:
+            prevA = prevA.link
+        prevA.link = currentA
+
+node = LinkedList()
+node.add("일")
+node.add("이")
+node.add("삼")
+node.add("사")
+node.add("오")
+node.add("육")
+node.add("칠")
+node.add("팔")
+
+node.swap(2,5)
+node.printAll()
