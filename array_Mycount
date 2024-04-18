@@ -1,0 +1,10 @@
+def Mycount(a, value):
+    count = 0
+    for i in range(0, len(a)):
+        if a[i] == value:
+            count += 1
+    return count
+
+arr = ["하나", "둘", "삼", "넷", "오", "삼"]
+print(Mycount(arr, "삼"))
+print(arr)
