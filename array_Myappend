@@ -1,0 +1,7 @@
+arr = ["하나", "둘", "삼", "넷", "오"]
+def Myappend(a, data):
+    a.append(data)
+
+Myappend(arr, "여섯")
+
+print(arr)
