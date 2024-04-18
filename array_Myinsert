@@ -1,0 +1,12 @@
+def Myinsert(a, index, value):
+    temp = []
+    for i in range(0, index):
+        temp.append(a[i])
+    temp.append(value)
+    for i in range(index, len(a)):
+        temp.append(a[i])
+    a[:] = temp
+
+arr = ["하나", "둘", "삼", "넷", "오"]
+Myinsert(arr, 3, "삼쩜오")
+print(arr)
