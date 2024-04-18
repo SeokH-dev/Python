@@ -1,0 +1,8 @@
+def Mypop(a):
+    delete = a[len(a)-1]
+    del a[len(a)-1]
+    return delete
+
+arr = ["하나", "둘", "삼", "넷", "오"]
+print(Mypop(arr))
+print(arr)
