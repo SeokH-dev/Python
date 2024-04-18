@@ -1,0 +1,58 @@
+class Node():
+    def __init__(self, d = None):
+        self.data = d
+        self.right = None
+        self.left = None
+
+class DoubleLinkedList():
+    def __init__(self):
+        self.head = None
+        self.tail = None
+    
+    def add(self, d = None):
+        newNode = Node(d)
+        if self.head is not None:
+            current = self.head
+            while current.right is not None:
+                current = current.right
+            current.right = newNode
+            newNode.left = current
+            self.tail = newNode
+        else:
+            self.head = newNode
+    def printAll(self):
+        current = self.head
+        while current.right is not None:
+            print(current.data)
+            current = current.right
+        print(current.data)
+
+    def printReverseAll(self):
+        current = self.tail
+        while current.left is not None:
+            print(current.data)
+            current = current.left
+        print(current.data)
+    
+    def delete(self, a = None):
+        current = self.head
+        for i in range(0, a):
+            current = current.right
+        right = current.right
+        left = current.left
+        right.left = left
+        left.right = right
+
+newNode = DoubleLinkedList()
+newNode.add("일")
+newNode.add("이")
+newNode.add("삼")
+newNode.add("사")
+newNode.add("오")
+newNode.add("육")
+newNode.add("칠")
+newNode.add("팔")
+
+newNode.delete(2)
+newNode.printAll()
+newNode.printReverseAll()
