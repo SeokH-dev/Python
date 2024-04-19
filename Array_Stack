@@ -1,0 +1,35 @@
+class ArrayStack():
+    def __init__(self, s = None):
+        self.size = s
+        self.array = []
+
+    def push(self, a = None):
+        l = len(self.array)
+        if self.size >= l:
+            self.array.append(a)
+        else:
+            print("Stack is Full, Nomore enter the array")
+        
+    def pop(self):
+        l = len(self.array)
+        if self.array[0] is not None:
+            for i in range(0, l):
+                element = self.array[i]
+        del(self.array[i])
+        return element
+    
+    def printAll(self):
+        for i in range(0, len(self.array)):
+            print(self.array[i])
+
+newArray = ArrayStack(5)
+newArray.push("하나")
+newArray.push("둘")
+newArray.push("삼")
+newArray.push("넷")
+newArray.push("오")
+
+newArray.printAll()
+p = newArray.pop()
+print(p)
+newArray.printAll()
