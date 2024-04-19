@@ -1,0 +1,44 @@
+class Node():
+    def __init__(self, d = None):
+        self.data = d
+        self.link = None
+    
+class LinkedList():
+    def __init__(self):
+        self.head = None
+        self.tail = None
+    
+    def enqueue(self, d = None):
+        newNode = Node(d)
+        if self.head is not None:
+            current = self.head
+            while current.link is not None:
+                current = current.link
+            current.link = newNode
+            self.tail = newNode
+        else:
+            self.head = newNode
+
+    def dequeue(self):
+        if self.head is None:
+            return None
+        current = self.head
+        self.head = current.link
+        return current.data
+
+    def printAll(self):
+        current = self.head
+        while current is not None:
+            print(current.data)
+            current = current.link
+
+n = LinkedList()
+n.enqueue("하나")
+n.enqueue("둘")
+n.enqueue("삼")
+n.enqueue("넷")
+n.enqueue("오")
+
+d = n.dequeue()
+n.printAll()
+print(d)
