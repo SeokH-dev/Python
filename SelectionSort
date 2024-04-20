@@ -1,0 +1,13 @@
+def SelectionSort(arr):
+    for i in range(0, len(arr)):
+        min = i
+        for j in range(i, len(arr)):
+            if arr[min] > arr[j]:
+                min = j
+        temp = arr[i]
+        arr[i] = arr[min]
+        arr[min] = temp
+
+a = [3, 5, 1, 2, 7]
+SelectionSort(a)
+print(a)
