@@ -1,0 +1,86 @@
+class Node():
+    def __init__(self, d = None):
+        self.data = d
+        self.right = None
+        self.left = None
+
+class LinkedList():
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def enqueueFront(self, d = None):
+        newNode = Node(d)
+        if self.head is not None:
+            self.head.left = newNode
+            newNode.right = self.head
+        else:  
+            self.tail = newNode
+        self.head = newNode
+
+
+    def enqueueRear(self, d = None):
+        newNode = Node(d)
+        if self.tail is not None:
+            self.tail.right = newNode
+            newNode.left = self.tail
+        else:
+            self.head = newNode
+        self.tail = newNode
+    
+    def dequeueFront(self):
+        deData = None
+        if self.head is not None:
+            deData = self.head.data
+            if self.head.right is not None:
+                self.head = self.head.right
+                self.head.left = None
+            else:
+                self.head = None
+                self.tail = None
+        else:
+            print("더 이상 지울게 없습니다.")
+        return 
+
+    def dequeueRear(self):
+        deData = None
+        if self.tail is not None:
+            deData = self.tail.data
+            if self.tail.left is not None:
+                self.tail = self.tail.left
+                self.tail.right = None
+            else:
+                self.head = None
+                self.tail = None
+        else:
+            print("더 이상 지울게 없습니다.")
+        return deData
+
+
+    def printQueue(self):
+        current = self.head
+        while current is not None:
+            print(current.data)
+            current = current.right
+        print()
+
+n = LinkedList()
+n.enqueueFront("삼")
+n.enqueueFront("둘")
+n.enqueueFront("하나")
+n.enqueueRear("넷")
+n.enqueueRear("오")
+
+n.printQueue()
+
+n.dequeueFront()
+n.printQueue()
+n.dequeueRear()
+n.printQueue()
+n.dequeueRear()
+n.dequeueRear()
+n.printQueue()
+n.dequeueRear()
+n.printQueue()
+n.dequeueFront()
+n.printQueue()
