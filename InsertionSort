@@ -1,0 +1,11 @@
+def InsertionSort(arr):
+    for i in range(0, len(arr)):
+        for j in range(i, 0, -1):
+            if arr[j] < arr[j-1]:
+                temp = arr[j]
+                arr[j] = arr[j-1]
+                arr[j-1] = temp
+
+a = [3, 5, 1, 9, 7, 4, 6]
+InsertionSort(a)
+print(a)
